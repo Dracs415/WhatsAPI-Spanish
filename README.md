@@ -7,6 +7,8 @@ Interfaz de WhatsApp Messenger
 
 Soporte en español de WhatsAPI, ejemplos básicos, etc...
 
+*NOTA:* En la wiki puedes encontrar una guía básica para empezar a usar la API, cualquier otro tipo de dudas/problemas en la sección de issues. En la wiki también podrás encontrar la manera correcta de poner código en los posts de la sección issues.
+
 **--> Antes de preguntar, echad un ojo a la [wiki](https://github.com/mgp25/WhatsAPI-Spanish/wiki)**
 
 ----------
