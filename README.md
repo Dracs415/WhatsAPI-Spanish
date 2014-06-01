@@ -11,9 +11,41 @@ Soporte en español de WhatsAPI, ejemplos básicos, etc...
 
 ----------
 
-- **20/02/2014 Facebook compra WhatsApp. Dudo de su privacidad. Esperemos que no retoquen su sistema para que siga funcionando la API**
+### Update March 15th, 2014
 
-- **15/02/2014 WhatsApp ha dado la orden de bloquear todos los repositorios en Github que contuviesen el nombre WhatsApp argumentando motivos de Copyright, aunque todos sabemos de sobra por que lo han hecho... Intentaré mantener todo actualizado. La repo oficial ya no se encuentra en Github, pero podeis encontrarla ;)**
+Sources are back after brief downtime due to [DCMA takedown](https://github.com/github/dmca/blob/master/2014-02-12-WhatsApp.md).
+
+### Note July 30th, 2013
+*New policy:*
+
+*I no longer provide support to users who are trying to send bulk messages using this API (i.e. a large amount of messages and not the built-in bulk message functionality).*
+*Sending advertisments on WhatsApp goes directly against their EULA and I have no way of determining whether the user is trying to send spam, advertising or sending mass messages to "opt-in users".*
+*And I also don't want to waste the little spare time that I have on trying to figure out ways to fuck up this beautiful ad-free platform called WhatsApp by enabling people to send spam.*
+*Everyone is free to use this API but there will be no more issue reports about being blocked after sending messages to semi-random users.*
+
+*In the famous words of Heath Ledger as the Joker (taken completely out of context by me):*
+
+**It's not about the money, it's about sending a message.**
+
+*\- [shirioko](https://github.com/shirioko)*
+
+----------
+
+### Note July 14th, 2013
+*Events renamed:*
+- *A large number of events have been renamed in the event handling system to better match the recent method names.*
+- *All event names and parameters have been listed in the EVENTS.md file*
+
+
+----------
+
+### Nota Julio 10, 2013
+*Otro cambio importante en el código*
+- *SE HAN RENOMBRADO CASI TODOS LOS MÉTODOS!! El antiguo código ya no funcionará, lo lamentamos, pero era necesario una interfaz más limpia. Por favor, mira el nuevo código.*
+- *Los métodos han sido renombrados para dar consistencia a la API*
+- *Initial movement towards bringing the code into alignment with PSR-2 (http://www.php-fig.org/psr/2/)*
+- *There is absolutely NO, NONE, NADA, ZIP, 100% FREE of any need to use/enter a MAC address or IMEI in this code. DO NOT TRY!*
+- *[New Android token used](https://github.com/karolsarnacki/whatsapp/commit/55d8233b852ecd9f6a6f845586e91e6fadbd0c44#L1L20) as WP7 one appears to no longer work. Long live the WP7 token?*
 
 ----------
 
