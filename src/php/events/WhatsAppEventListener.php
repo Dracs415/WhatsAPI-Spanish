@@ -116,6 +116,7 @@ interface WhatsAppEventListener {
 
     function onGetError(
         $phone, // The user phone number including the country code.
+        $id, // The id of the request that caused the error
         $error // Array with error data for why request failed.
     );
 
@@ -347,8 +348,7 @@ interface WhatsAppEventListener {
         $phone, // The user phone number including the country code.
         $from, // The sender JID.
         $msgid, // The message id.
-        $type, // The message type.
-        $time // The unix time when send message notification.
+        $type // The message type.
     );
 
     function onPing(
@@ -385,8 +385,9 @@ interface WhatsAppEventListener {
 
     function onSendMessageReceived(
         $phone, // The user phone number including the country code.
-        $time, // The unix time when send message notification.
-        $from // The sender JID.
+        $id, // Message ID
+        $from, // The sender JID.
+        $type // Message type
     );
 
     function onSendPong(

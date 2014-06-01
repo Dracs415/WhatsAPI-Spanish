@@ -121,7 +121,8 @@ class WhatsAppEventListenerBase implements WhatsAppEventListener {
     ) {}
 
     function onGetError(
-        $phone, 
+        $phone,
+        $id,
         $error 
     ) {}
 
@@ -314,8 +315,7 @@ class WhatsAppEventListenerBase implements WhatsAppEventListener {
         $phone,
         $from,
         $msgid,
-        $type,
-        $time
+        $type
     ) {}
 
     function onPing(
@@ -331,8 +331,9 @@ class WhatsAppEventListenerBase implements WhatsAppEventListener {
 
     function onSendMessageReceived(
         $phone,
-        $time,
-        $from
+        $id,
+        $from,
+        $type
     ) {}
 
     function onSendPong(
