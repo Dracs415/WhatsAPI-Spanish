@@ -1173,7 +1173,8 @@ class WhatsProt
         $this->sendNode($node);
         $this->eventManager()->fireSendPresence(
             $this->phoneNumber, 
-            $presence['type']
+            $presence['type'],
+            @$presence['name']
         );
     }
 
@@ -2066,13 +2067,22 @@ class WhatsProt
         }
         if (strcmp($node->getTag(), "presence") == 0
             && strncmp($node->getAttribute('from'), $this->phoneNumber, strlen($this->phoneNumber)) != 0
-            && strpos($node->getAttribute('from'), "-") == false
-            && $node->getAttribute('type') != null) {
+            && strpos($node->getAttribute('from'), "-") == false) {
+            $presence = array();
+            if($node->getAttribute('type') == null){
             $this->eventManager()->firePresence(
                 $this->phoneNumber,
                 $node->getAttribute('from'),
-                $node->getAttribute('type')
+                $presence['type'] = "available"
             );
+            }
+            else{
+            $this->eventManager()->firePresence(
+                $this->phoneNumber,
+                $node->getAttribute('from'),
+                $presence['type'] = "unavailable"
+            );
+            }
         }
         if ($node->getTag() == "presence"
             && strncmp($node->getAttribute('from'), $this->phoneNumber, strlen($this->phoneNumber)) != 0
