@@ -1174,7 +1174,7 @@ class WhatsProt
         $this->eventManager()->fireSendPresence(
             $this->phoneNumber, 
             $presence['type'],
-            @$presence['name']
+            $this->name
         );
     }
 
