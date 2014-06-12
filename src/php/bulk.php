@@ -1,6 +1,5 @@
 <?php
 require_once("whatsprot.class.php");
-//require_once("contacts.php");
 /**
  * Created by JetBrains PhpStorm.
  * User: Max
@@ -9,17 +8,19 @@ require_once("whatsprot.class.php");
  * To change this template use File | Settings | File Templates.
  *
  * Usage:
- *$username = "";
- *
- *$password = "";
- *
- *$contacts = array("","",""); // you can also read numbers from a txt file
+ * $username = "";
  * 
- *$wbs = new WaBulkSender($username, $password);
- *$wbs->Login();
- *$wbs->SyncContacts($contacts);
- *$wbs->SendBulk($contacts, "bulk message");
-**/
+ * $password = "";
+ *
+ * $contacts = array("", "", ""); // or read them from a file
+ *  
+ * $wbs = new WaBulkSender($username, $password);
+ * $wbs->Login();
+ * $wbs->SyncContacts($contacts);
+ * $wbs->SendBulk($contacts, "bulk message");
+ * or
+ * $wbs->SendBroadcast($contacts, "Broadcast Message");
+ */
 
 class WaBulkSender
 {
@@ -50,7 +51,6 @@ class WaBulkSender
         $this->wa->eventManager()->bind("onLogin", "WaBulkSender::event_onLogin");
         $this->wa->eventManager()->bind("onConnect", "WaBulkSender::event_onConnect");
         $this->wa->eventManager()->bind("onMessageReceivedServer", "WaBulkSender::event_onMessageReceivedServer");
-        $this->wa->eventManager()->bind("onGetSyncResult", "WaBulkSender::onSyncResult");
     }
 
     public function Login()
@@ -64,19 +64,6 @@ class WaBulkSender
         $this->wa->pollMessages();
         echo "Ready for work!<br />";
     }
-    
-    public static function onSyncResult($result)
-	{
-    	foreach($result->existing as $number)
-    	{
-        	echo "$number exists<br />";
-    	}
-    	foreach($result->nonExisting as $number)
-    	{
-        	echo "$number does not exist<br />";
-    	}
-    	die();//to break out of the while(true) loop
-	}
 
     /**
      * @param string $number
@@ -104,12 +91,12 @@ class WaBulkSender
         echo "connected to WhatsApp<br />";
     }
 
-    public static function event_onMessageReceivedServer($mynumber, $from, $id, $type, $time)
+    public static function event_onMessageReceivedServer($mynumber, $from, $id, $type)
     {
         if($from != "broadcast")
         {
             //unlock
-            echo "$type message $id from $mynumber to $from received by server on $time<br />";
+            echo "$type with id $id from $mynumber to $from received by server<br />";
             static::$sendLock = false;
         }
     }
@@ -119,7 +106,8 @@ class WaBulkSender
      */
     public function SyncContacts($contacts)
     {
-        $this->wa->sendSync($contacts);
+		$this->wa->sendSync($contacts);
+		echo "Synced " . count($contacts) . " contacts<br />";
     }
 
     /**
@@ -166,3 +154,4 @@ class WaBulkSender
         echo "Finished sending bulk<br />";
     }
 }
+
