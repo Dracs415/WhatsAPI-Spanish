@@ -2867,6 +2867,15 @@ class WhatsProt
      */
     protected function sendSetPicture($jid, $filepath)
     {
+    	if(stripos($filepath, 'http') == 0 && !preg_match('/\s/',$filepath)){
+		$extension = end(explode(".", $filepath));
+		$newImageName = rand(0, 100000);
+		$imagePath = static::PICTURES_FOLDER."/".$newImageName.".jpg";
+		if($extension == jpg){
+			copy($filepath, $imagePath);
+			$filepath = $imagePath;
+		}
+	}
         preprocessProfilePicture($filepath);
         $fp = @fopen($filepath, "r");
         if ($fp) {
