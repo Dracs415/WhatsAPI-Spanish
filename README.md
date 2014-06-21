@@ -11,6 +11,8 @@ Soporte en español de WhatsAPI, ejemplos básicos, etc...
 
 **--> Antes de preguntar, echad un ojo a la [wiki](https://github.com/mgp25/WhatsAPI-Spanish/wiki)**
 
+- **[WA Tools](http://watools.es):** Un servicio gratuito donde podreis comprobar las funcionalidades de la API, a parte, podreis mandar mensajes anónimos, mensajes multimedia (imágenes y música), ver perfiles y última conexión incluso si la persona lo tiene en 'no visible para los demas', obtener tu contraseña de WhatsApp, comprobar si tu cuenta esta bloqueado y mucho más :)
+
 ----------
 
 ### Update March 15th, 2014
