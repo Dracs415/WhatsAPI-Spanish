@@ -1,5 +1,5 @@
 <?php
-require_once("whatsprot.class.php");
+require_once("../src/whatsprot.class.php");
 /**
  * Created by JetBrains PhpStorm.
  * User: Max
@@ -154,4 +154,3 @@ class WaBulkSender
         echo "Finished sending bulk<br />";
     }
 }
-
