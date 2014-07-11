@@ -525,12 +525,12 @@ class WhatsProt
      * @param  string  $path          URL or local path to the audio file to send
      * @param  bool $storeURLmedia Keep a copy of the audio file on your server
      */
-    public function sendBroadcastAudio($targets, $path, $storeURLmedia = false, $fsize = 0, $fhash = "")
+    public function sendBroadcastAudio($targets, $path, $storeURLmedia = false)
     {
         if (!is_array($targets)) {
             $targets = array($targets);
         }
-        $this->sendMessageAudio($targets, $path, $storeURLmedia, $fsize, $fhash);
+        $this->sendMessageAudio($targets, $path, $storeURLmedia);
     }
 
     /**
@@ -545,12 +545,12 @@ class WhatsProt
      * @param  string  $path          URL or local path to the image file to send
      * @param  bool $storeURLmedia Keep a copy of the audio file on your server
      */
-    public function sendBroadcastImage($targets, $path, $storeURLmedia = false, $fsize = 0, $fhash = "")
+    public function sendBroadcastImage($targets, $path, $storeURLmedia = false)
     {
         if (!is_array($targets)) {
             $targets = array($targets);
         }
-        $this->sendMessageImage($targets, $path, $storeURLmedia, $fsize, $fhash);
+        $this->sendMessageImage($targets, $path, $storeURLmedia);
     }
 
     /**
@@ -612,12 +612,12 @@ class WhatsProt
      * @param  string  $path          URL or local path to the video file to send
      * @param  bool $storeURLmedia Keep a copy of the audio file on your server
      */
-    public function sendBroadcastVideo($targets, $path, $storeURLmedia = false, $fsize = 0, $fhash = "")
+    public function sendBroadcastVideo($targets, $path, $storeURLmedia = false)
     {
         if (!is_array($targets)) {
             $targets = array($targets);
         }
-        $this->sendMessageVideo($targets, $path, $storeURLmedia, $fsize, $fhash);
+        $this->sendMessageVideo($targets, $path, $storeURLmedia);
     }
 
     /**
@@ -2515,7 +2515,7 @@ class WhatsProt
             $url = $duplicate->getAttribute("url");
             $filesize = $duplicate->getAttribute("size");
 //            $mimetype = $duplicate->getAttribute("mimetype");
-//            $filehash = $duplicate->getAttribute("filehash");
+			$filehash = $duplicate->getAttribute("filehash");
             $filetype = $duplicate->getAttribute("type");
 //            $width = $duplicate->getAttribute("width");
 //            $height = $duplicate->getAttribute("height");
@@ -2545,6 +2545,7 @@ class WhatsProt
 //            $width = $json->width;
 //            $height = $json->height;
             $filename = $json->name;
+            $filehash = $json->filehash;
         }
 
         $mediaAttribs = array();
@@ -2553,6 +2554,7 @@ class WhatsProt
         $mediaAttribs["url"] = $url;
         $mediaAttribs["file"] = $filename;
         $mediaAttribs["size"] = $filesize;
+        $mediaAttribs["hash"] = $filehash;
 
         $filepath = $this->mediaQueue[$id]['filePath'];
         $to = $this->mediaQueue[$id]['to'];
@@ -2583,6 +2585,7 @@ class WhatsProt
             $url,
             $filename,
             $filesize,
+            $filehash,
             $icon
         );
         return true;
