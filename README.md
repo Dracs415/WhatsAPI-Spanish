@@ -15,30 +15,30 @@ Soporte en español de WhatsAPI, ejemplos básicos, etc...
 
 ----------
 
-### Update March 15th, 2014
+### Nota 15 de Marzo, 2014
 
-Sources are back after brief downtime due to [DCMA takedown](https://github.com/github/dmca/blob/master/2014-02-12-WhatsApp.md).
+El repositorio oficial de WhatsAPI vuelve estar activo tras la petición DCMA [DCMA takedown](https://github.com/github/dmca/blob/master/2014-02-12-WhatsApp.md).
 
-### Note July 30th, 2013
-*New policy:*
+### Nota 30 de Julio, 2013
+*Nueva política en los repositorios de WhatsAPI:*
 
-*I no longer provide support to users who are trying to send bulk messages using this API (i.e. a large amount of messages and not the built-in bulk message functionality).*
-*Sending advertisments on WhatsApp goes directly against their EULA and I have no way of determining whether the user is trying to send spam, advertising or sending mass messages to "opt-in users".*
-*And I also don't want to waste the little spare time that I have on trying to figure out ways to fuck up this beautiful ad-free platform called WhatsApp by enabling people to send spam.*
-*Everyone is free to use this API but there will be no more issue reports about being blocked after sending messages to semi-random users.*
+*No damos soporte a los usuarios que intentan mandar mensajes masivos con esta API(Por ejemplo, mandando muchos mensajes en vez de utilizar la herramienta bulk.php que esta en el repositorio).*
+*Mandar anuncios por WhatsApp va directamente en contra de su política (EULA) y no sabemos cuando un usuario va a mandar spam, mandar mensajes masivos, etc.*
+*Tampoco voy a perder tiempo en descubrir/hacer métodos para destruir esta preciosa plataforma libre de anuncios/publicidad, algo insegura, pero al menos no tiene publicidad.*
+*Todo el mundo tiene la libertad de usar esta API, pero no habrán más mensajes/reportes sobre bloqueo después de haber mandado mensajes a usuarios aleatorios*
 
-*In the famous words of Heath Ledger as the Joker (taken completely out of context by me):*
+*En las famosas palabras de Heath Ledger interpretando Joker (sacado completamente de contexto por mi):*
 
-**It's not about the money, it's about sending a message.**
+**El dinero es lo de menos, lo que importa es mandar un mensaje**
 
 *\- [shirioko](https://github.com/shirioko)*
 
 ----------
 
-### Note July 14th, 2013
-*Events renamed:*
-- *A large number of events have been renamed in the event handling system to better match the recent method names.*
-- *All event names and parameters have been listed in the EVENTS.md file*
+### Nota 14 de Julio, 2013
+*Eventos renombrados:*
+- *Una gran cantidad de eventos han sido renombrados para un mejor entendimiento con los nuevos nombres de los métodos/funciones.*
+- *Todos los nombres de los eventos y parámetros están listados en el archivo EVENTS.md*
 
 
 ----------
@@ -47,9 +47,9 @@ Sources are back after brief downtime due to [DCMA takedown](https://github.com/
 *Otro cambio importante en el código*
 - *SE HAN RENOMBRADO CASI TODOS LOS MÉTODOS!! El antiguo código ya no funcionará, lo lamentamos, pero era necesario una interfaz más limpia. Por favor, mira el nuevo código.*
 - *Los métodos han sido renombrados para dar consistencia a la API*
-- *Initial movement towards bringing the code into alignment with PSR-2 (http://www.php-fig.org/psr/2/)*
-- *There is absolutely NO, NONE, NADA, ZIP, 100% FREE of any need to use/enter a MAC address or IMEI in this code. DO NOT TRY!*
-- *[New Android token used](https://github.com/karolsarnacki/whatsapp/commit/55d8233b852ecd9f6a6f845586e91e6fadbd0c44#L1L20) as WP7 one appears to no longer work. Long live the WP7 token?*
+- *Movimiento inicial a aliniar el código con PSR-2 (http://www.php-fig.org/psr/2/)*
+- *NO se usa usa IMEI o MAC del dispositivo, repito, NO se usa el IMEI o la MAC del dispositivo.*
+- *[La nueva token de Android usada](https://github.com/karolsarnacki/whatsapp/commit/55d8233b852ecd9f6a6f845586e91e6fadbd0c44#L1L20) por WP7 parece que no funciona más. ¿Larga vida al token WP7?*
 
 ----------
 
@@ -143,10 +143,17 @@ MIT
 # mgp25
 
 Actualmente desarrollo yo solo, pero sería genial que la gente participase y aportase su granito de arena :)
+Trabajo activamente en esta API, muchas de las actualizaciones en este repositorio estan siendo incorparadas a la repo oficial que lleva Shirioko.
 
 
-# WATools
+# WATools Actualizado 2014
 
 Herramienta online que te permite ver la imagen de perfil, estado y última conexión de una persona, así como mandar mensajes y archivos de manera anónima.
 
 WATools [http://watools.es](https://www.watools.es)
+
+# WhatsApp Tracker
+
+Una utilidad de consola, que permite ver la última hora en línea de cualquier contacto aunque lo tenga oculto o tenga su privacidad oculta para ciertos usuarios. Más información y código en:
+
+[WhatsApp Tracker](https://github.com/mgp25/WhatsApp-Tracker)
