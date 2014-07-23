@@ -1,2 +1,5 @@
 *.dat
 test.php
+*.jpg
+
+src/watools.php
