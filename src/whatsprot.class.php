@@ -1973,23 +1973,6 @@ class WhatsProt
                     $this->sendMessageReceived($node);
                 }
             }
-            if ($node->hasChild('notification') && $node->getChild('notification')->getAttribute('type') == 'picture') {
-                if ($node->getChild('notification')->hasChild('set')) {
-                    $this->eventManager()->fireProfilePictureChanged(
-                        $this->phoneNumber,
-                        $node->getAttribute('from'),
-                        $node->getAttribute('id'),
-                        $node->getAttribute('t')
-                    );
-                } else if ($node->getChild('notification')->hasChild('delete')) {
-                    $this->eventManager()->fireProfilePictureDeleted(
-                        $this->phoneNumber,
-                        $node->getAttribute('from'),
-                        $node->getAttribute('id'),
-                        $node->getAttribute('t')
-                    );
-                }
-            }
             if ($node->getAttribute("type") == "media" && $node->getChild('media') != null) {
                 if ($node->getChild("media")->getAttribute('type') == 'image') {
                     $this->eventManager()->fireGetImage(
@@ -2175,7 +2158,7 @@ class WhatsProt
         }
         if ($node->getTag() == "iq"
             && $node->getAttribute('type') == "get"
-            && $node->getChild(0)->getTag() == "ping") {
+            && $node->getAttribute('xmlns') == "urn:xmpp:ping") {
             $this->eventManager()->firePing(
                 $this->phoneNumber,
                 $node->getAttribute('id')
@@ -2354,12 +2337,30 @@ class WhatsProt
                         $node->getChild(0)->getData()); //status message
                     break;
                 case "picture":
+                    if ($node->hasChild('set')) {
+                        $this->eventManager()->fireProfilePictureChanged(
+                            $this->phoneNumber,
+                            $node->getAttribute('from'),
+                            $node->getAttribute('id'),
+                            $node->getAttribute('t')
+                        );
+                    } else if ($node->hasChild('delete')) {
+                        $this->eventManager()->fireProfilePictureDeleted(
+                            $this->phoneNumber,
+                            $node->getAttribute('from'),
+                            $node->getAttribute('id'),
+                            $node->getAttribute('t')
+                        );
+                    }
                     //TODO
                     break;
                 case "contacts":
                     //TODO
                     break;
                 case "participant":
+                    //TODO
+                    break;
+               	case "subject":
                     //TODO
                     break;
                 default:
